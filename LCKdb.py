@@ -12,7 +12,7 @@ while 1:
     print("3. Search Player")
     print("4. Add Coaching Staff")
     print("5. Delete Coaching Staff")
-    print("6. Search Player")
+    print("6. Search Coaching Staff")
     print("7. Search Team")
     print("Exit: Input Any other keys")
     print("--------------------------------------------------------------")
@@ -76,13 +76,13 @@ while 1:
             print(data)
 
     elif command == 7: #팀 검색
-        sql = "SELECT * FROM player WHERE team = %s"
+        sql = "SELECT summoner_ID FROM player WHERE team = %s"
         searchteam = str(input())
         cursor.execute(sql, searchteam)
         result = cursor.fetchall()
         for row_data in result:
             print(row_data)
-        sql2 = "SELECT * FROM coaching_staff WHERE team = %s"
+        sql2 = "SELECT summoner_ID FROM coaching_staff WHERE team = %s"
         cursor.execute(sql2, searchteam)
         result = cursor.fetchall()
         for row_data in result:
