@@ -43,11 +43,16 @@ while 1:
         # result = cursor.fetchall()
 
     elif command == 4:
-        sql = "SELECT * FROM Book"
-        # cursor.execute(sql)
-        # result = cursor.fetchall()
-        # for row_data in result:
-        #     print(row_data)
+        sql = "SELECT * FROM player"
+        cursor.execute(sql)
+        result = cursor.fetchall()
+        for row_data in result:
+            print(row_data)
+        sql2 = "SELECT * FROM coaching_staff"
+        cursor.execute(sql2)
+        result = cursor.fetchall()
+        for row_data in result:
+            print(row_data)
     else:
         break
 
