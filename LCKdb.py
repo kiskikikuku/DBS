@@ -76,13 +76,13 @@ while 1:
             print(data)
 
     elif command == 7: #팀 검색
-        sql = "SELECT summoner_ID FROM player WHERE team = %s"
+        sql = "SELECT summoner_ID, line FROM player WHERE team = %s"
         searchteam = str(input())
         cursor.execute(sql, searchteam)
         result = cursor.fetchall()
         for row_data in result:
             print(row_data)
-        sql2 = "SELECT summoner_ID FROM coaching_staff WHERE team = %s"
+        sql2 = "SELECT summoner_ID, role FROM coaching_staff WHERE team = %s"
         cursor.execute(sql2, searchteam)
         result = cursor.fetchall()
         for row_data in result:
