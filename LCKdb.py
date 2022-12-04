@@ -9,9 +9,10 @@ while 1:
     print("[LCK Viewer(E-Sports)]")
     print("1. Add Player")
     print("2. Add Coaching Staff")
-    print("3. Delete Data")
-    print("4. Search Data")
-    print("5. Print DB")
+    print("3. Delete Player")
+    print("4. Delete Coaching Staff")
+    print("5. Search Data")
+    print("6. Print DB")
     print("Others. Exit(Input Any value (except 1,2,3,4)")
     print("--------------------------------------------------------------")
     command = int(input())
@@ -29,18 +30,18 @@ while 1:
         expiration = str(input())
         cursor.execute(sql, (id, fname, lname, line, birth, age, team, salary, expiration))
     elif command == 2:
-        sql = "DELETE FROM Book WHERE bookname = %s"
-        print("Input Summoner ID you want delete:  ")
-        deleteBookname = str(input())
-        # cursor.execute(sql, deleteBookname)
-        # db.commit()
+        sql = "DELETE FROM player WHERE summoner_ID = %s"
+        print("Input Summoner ID of player you want delete:  ")
+        id = str(input())
+        cursor.execute(sql, id)
+        db.commit()
 
     elif command == 3:
         sql = "SELECT * FROM Book WHERE bookname = %s"
-        print("검색할 책의 이름을 입력하세요: ")
-        searchBook = str(input())
-        # cursor.execute(sql, searchBook)
-        # result = cursor.fetchall()
+        print("Input Summoner ID of player you want search: ")
+        searchPlayer = str(input())
+        cursor.execute(sql, searchPlayer)
+        result = cursor.fetchall()
 
     elif command == 4:
         sql = "SELECT * FROM player"
